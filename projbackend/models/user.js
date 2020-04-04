@@ -73,4 +73,4 @@ userSchema.method = {
   },
 };
 
-module.export = mongoose.model('user', userSchema);
+module.export = mongoose.model('User', userSchema);

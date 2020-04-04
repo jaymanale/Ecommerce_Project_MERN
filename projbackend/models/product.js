@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
+
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -22,7 +23,7 @@ const productSchema = new mongoose.Schema(
     },
     category: {
       type: ObjectId,
-      ref: 'category',
+      ref: 'Category',
       required: true,
     },
     stock: {
@@ -40,4 +41,4 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
