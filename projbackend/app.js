@@ -6,8 +6,10 @@ const app = express();
 
 // middleware imports
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var cors = require('cors');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+
+const authRoutes = require('./routes/auth-route');
 
 // mongoDB connection
 mongoose
@@ -23,6 +25,9 @@ mongoose
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+
+// Routes
+app.use('/api', authRoutes);
 
 //Listen to express port
 const port = process.env.PORT || 8000;
