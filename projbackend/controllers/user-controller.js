@@ -31,7 +31,7 @@ exports.updateUser = (req, res) => {
     { $set: req.body },
     { new: true, useFindAndModify: false },
     (err, user) => {
-      if (err) {
+      if (err || !user) {
         return res.status(400).json({
           error: 'You are not authorised to update user',
         });

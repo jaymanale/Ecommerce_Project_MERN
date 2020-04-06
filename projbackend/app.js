@@ -13,7 +13,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth-route');
 const userRoutes = require('./routes/user-route');
 const cateoryRoutes = require('./routes/category-route');
-
+const productRoutes = require('./routes/product-route');
 // mongoDB connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -33,6 +33,7 @@ app.use(cors());
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', cateoryRoutes);
+app.use('/api', productRoutes);
 
 //Listen to express port
 const port = process.env.PORT || 8000;

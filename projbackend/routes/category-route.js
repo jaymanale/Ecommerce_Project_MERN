@@ -33,17 +33,23 @@ router.post(
 
 // read
 router.get(
-  '/category/:categoryId',
+  '/category/:categoryId/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,
   getCategory
 );
-router.get('/categories', isSignedIn, isAuthenticated, isAdmin, getAllCategory);
+router.get(
+  '/categories/:userId',
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  getAllCategory
+);
 
 // update
 router.put(
-  '/category/:categoryId:userId',
+  '/category/:categoryId/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,
@@ -53,7 +59,7 @@ router.put(
 // Delete
 
 router.delete(
-  '/category/:categoryId:userId',
+  '/category/:categoryId/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,

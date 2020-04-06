@@ -40,11 +40,14 @@ exports.getAllCategory = (req, res) => {
 };
 
 exports.updateCategory = (req, res) => {
+  console.log(req.category);
+  console.log(req.body.name);
   let category = req.category;
   category.name = req.body.name;
   category.save((err, updatedCategory) => {
-    if (err || !this.updatedCategory) {
-      return res.stattus(400).json({
+    console.log(updatedCategory);
+    if (err || !updatedCategory) {
+      return res.status(400).json({
         error: 'Update Category Failed',
       });
     }
@@ -61,7 +64,7 @@ exports.removeCategory = (req, res) => {
       });
     }
     return res.json({
-      message: `${category} successfully deleted.`,
+      message: `${category.name} category successfully deleted.`,
     });
   });
 };
