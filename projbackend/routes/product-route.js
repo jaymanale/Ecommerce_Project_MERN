@@ -4,6 +4,11 @@ const router = express.Router();
 const {
   getProductById,
   createProduct,
+  getProduct,
+  photo,
+  getAllProducts,
+  updateProduct,
+  deleteProduct,
 } = require('../controllers/product-controller');
 const {
   isSignedIn,
@@ -19,6 +24,7 @@ router.param('productId', getProductById);
 
 // Routes
 
+//create
 router.post(
   '/product/create/:userId',
   isSignedIn,
@@ -26,5 +32,30 @@ router.post(
   isAdmin,
   createProduct
 );
+
+// view
+router.get('/product/:productId', getProduct);
+router.get('/product/photo/:productId', photo);
+
+// delete
+router.delete(
+  '/product/:productId/:userId',
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  deleteProduct
+);
+
+// update
+router.put(
+  '/product/:productId/:userId',
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  updateProduct
+);
+
+// listing route
+router.get('/products', getAllProducts);
 
 module.exports = router;
