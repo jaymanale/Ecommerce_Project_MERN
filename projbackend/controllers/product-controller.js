@@ -69,6 +69,7 @@ exports.photo = (req, res, next) => {
 
 // Delete
 exports.deleteProduct = (req, res) => {
+  // NOTE: might need to chnage here check category delete
   Product.findByIdAndDelete(req.product._id).exec((err, deletedProduct) => {
     if (err || !deletedProduct) {
       return res.status(400).json({
@@ -142,6 +143,7 @@ exports.getAllProducts = (req, res) => {
     });
 };
 
+// Middleware
 exports.updateStock = (req, res, next) => {
   const myOrder = req.body.order.products.map((prod) => {
     return {
@@ -158,5 +160,6 @@ exports.updateStock = (req, res, next) => {
         error: 'Bulk Operation failed',
       });
     }
+    next();
   });
 };

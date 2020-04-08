@@ -14,6 +14,7 @@ const authRoutes = require('./routes/auth-route');
 const userRoutes = require('./routes/user-route');
 const cateoryRoutes = require('./routes/category-route');
 const productRoutes = require('./routes/product-route');
+const orderRoutes = require('./routes/order-route');
 // mongoDB connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -34,6 +35,7 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', cateoryRoutes);
 app.use('/api', productRoutes);
+app.use('/api', orderRoutes);
 
 //Listen to express port
 const port = process.env.PORT || 8000;
