@@ -24,7 +24,7 @@ router.param('userId', getUserById);
 router.param('orderId', getOrderById);
 
 //routes
-router.push(
+router.post(
   '/order/create/:userId',
   isSignedIn,
   isAuthenticated,
