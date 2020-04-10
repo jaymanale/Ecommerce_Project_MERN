@@ -5,7 +5,7 @@ import Base from './Base';
 function Home() {
   return (
     <Base>
-      <h1> This is Content.</h1>
+      <h1> This is Home</h1>
     </Base>
   );
 }

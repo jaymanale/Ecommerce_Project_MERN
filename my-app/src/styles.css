@@ -3,3 +3,7 @@
 .nav :hover {
   border-radius: 0px;
 }
+
+body {
+  overflow-x: hidden;
+}

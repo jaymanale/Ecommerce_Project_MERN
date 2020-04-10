@@ -1,18 +1,13 @@
 import React from 'react';
 import Menu from './Menu';
-
+import Footer from './footer';
 const Base = ({ children }) => {
   return (
-    <div>
+    <React.Fragment>
       <Menu />
       <div> {children}</div>
-      <footer>
-        <div className="row">
-          <div className="col-6">this le left footer</div>
-          <div className="col-6">this is right footer</div>
-        </div>
-      </footer>
-    </div>
+      <Footer />
+    </React.Fragment>
   );
 };
 
