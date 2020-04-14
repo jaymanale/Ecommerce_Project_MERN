@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Base from '../core/Base';
-import { signup } from './../auth/helper/index';
+import { signup } from '../auth/helper/index';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
@@ -8,7 +8,7 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
-    error: [],
+    error: '',
     success: false,
   });
 
@@ -35,7 +35,7 @@ const Signup = () => {
             name: '',
             email: '',
             password: '',
-            error: [],
+            error: '',
             success: true,
           });
         }
