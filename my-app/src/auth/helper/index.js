@@ -1,4 +1,4 @@
-import { API } from './../../backend';
+import { API } from '../../backend';
 
 export const signup = (user) => {
   return fetch(`${API}/signup`, {
@@ -9,10 +9,10 @@ export const signup = (user) => {
     },
     body: JSON.stringify(user),
   })
-    .then((Response) => {
-      return Response.json();
+    .then((response) => {
+      return response.json();
     })
-    .catch((err) => console.log('SignUp Error'));
+    .catch((err) => console.log(err));
 };
 
 export const signin = (user) => {
@@ -24,21 +24,21 @@ export const signin = (user) => {
     },
     body: JSON.stringify(user),
   })
-    .then((Response) => {
-      return Response.json();
+    .then((response) => {
+      return response.json();
     })
-    .catch((err) => console.log('Signin Error'));
+    .catch((err) => console.log(err));
 };
 
-//saving token in browser
 export const authenticate = (data, next) => {
-  if (typeof window != 'undefined') {
+  if (typeof window !== 'undefined') {
     localStorage.setItem('jwt', JSON.stringify(data));
+    next();
   }
 };
 
 export const signout = (next) => {
-  if (typeof window != 'undefined') {
+  if (typeof window !== 'undefined') {
     localStorage.removeItem('jwt');
     next();
 

@@ -5,8 +5,8 @@ import { signin, isAuthenticated, authenticate } from '../auth/helper/index';
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: '',
-    password: '',
+    email: 't3@gmail.com',
+    password: '12345',
     error: '',
     loading: false,
     didRedirect: false,
@@ -26,8 +26,13 @@ const Signin = () => {
           setValues({ ...values, error: data.error, loading: false });
         } else {
           authenticate(data, () => {
+            console.log('IN authenticate');
             setValues({
               ...values,
+              email: '',
+              password: '',
+              error: '',
+              loading: false,
               didRedirect: true,
             });
           });
@@ -38,16 +43,14 @@ const Signin = () => {
 
   const performRedirect = () => {
     if (didRedirect) {
-      console.log('USERRRRR true');
       if (user && user.role === 1) {
-        return <p>Admin Dashboard</p>;
+        return <Redirect to="/admin/dashboard" />;
       } else {
-        console.log('USERRRRR');
-        return <p> user dashboard</p>;
+        return <Redirect to="/user/dashboard" />;
       }
     }
-    // NOTE:  Chnage the condition remove didredirect
-    if (isAuthenticated() && didRedirect) {
+
+    if (isAuthenticated()) {
       return <Redirect to="/" />;
     }
   };
