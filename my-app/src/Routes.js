@@ -8,6 +8,10 @@ import UserDashBoard from './user/UserDashBoard';
 import AdminDashBoard from './user/AdminDashBoard';
 import AdminRoute from './auth/helper/AdminRoutes';
 import AddCategory from './admin/AddCategory';
+import manageCategories from './admin/ManageCategories';
+import addProduct from './admin/AddProduct';
+import manageProducts from './admin/ManageProducts';
+import manageOrder from './admin/Orders';
 
 const Routes = () => {
   return (
@@ -23,6 +27,14 @@ const Routes = () => {
           exact
           component={AddCategory}
         />
+        <AdminRoute
+          path="/admin/categories"
+          exact
+          component={manageCategories}
+        />
+        <AdminRoute path="/admin/create/product" exact component={addProduct} />
+        <AdminRoute path="/admin/products" exact component={manageProducts} />
+        <AdminRoute path="/admin/orders" exact component={manageOrder} />
       </Switch>
     </BrowserRouter>
   );

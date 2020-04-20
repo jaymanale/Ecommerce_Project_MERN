@@ -1,13 +1,12 @@
 import React from 'react';
 import Base from './../core/Base';
 import AdminMenu from './AdminMenu';
-
-const manageProducts = () => {
+const manageCategories = () => {
   return (
     <Base>
       <div className="text-center">
-        <h3>Manage a Product</h3>
-        <p>Manage your Product here...</p>
+        <h3>Manage a Category</h3>
+        <p>Manage your Category here...</p>
       </div>
       <div className="row p-4">
         <div className="col-3">{AdminMenu()}</div>
@@ -17,4 +16,4 @@ const manageProducts = () => {
   );
 };
 
-export default manageProducts;
+export default manageCategories;

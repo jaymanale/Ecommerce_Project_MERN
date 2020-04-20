@@ -81,7 +81,7 @@ const AddCategory = () => {
     <Base>
       <div className="text-center">
         <h3>Create a Category</h3>
-        <p>Manage your Category here...</p>
+        <p>Add your Category here...</p>
       </div>
       <div className="row p-4">
         <div className="col-3">{AdminMenu()}</div>
